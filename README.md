@@ -1,4 +1,4 @@
-# SFMLCmakeSetup 
+# PLUG AND PLAY SFMLCmakeSetup!
 
 ---
 
