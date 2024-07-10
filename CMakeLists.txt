@@ -21,6 +21,8 @@ set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE) #link time optimization
 # Ensure SFML is built as static libraries
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build SFML as static libraries" FORCE)
 
+#for imgui-sfml
+set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/imgui-docking/imgui")
 
 if(MSVC) 
 add_compile_options(/arch:AVX2) #make sure SIMD optimizations take place
@@ -31,9 +33,10 @@ project(mygame)
 
 
 
-
 #Add SFML, and here you would add other libraries if needed!
 add_subdirectory(thirdparty/SFML-2.6.1)
+add_subdirectory(thirdparty/imgui-docking)
+add_subdirectory(thirdparty/imgui-sfml-2.6.x)
 
 
 # MY_SOURCES is defined to be a list of all the source files for my game 
@@ -86,4 +89,6 @@ target_link_libraries("${CMAKE_PROJECT_NAME}"
 	sfml-system 
 	sfml-audio 
 	sfml-network
+	imgui
+	ImGui-SFML::ImGui-SFML
 )

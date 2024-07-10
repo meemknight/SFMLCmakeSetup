@@ -1,9 +1,41 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+
+#pragma region imgui
+#include "imgui.h"
+#include "imgui-SFML.h"
+#include "imguiThemes.h"
+#pragma endregion
+
+
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(500, 500), "SFML works!");
+
+
+#pragma region imgui
+	ImGui::SFML::Init(window);
+	//you can use whatever imgui theme you like!
+	//ImGui::StyleColorsDark();				
+	//imguiThemes::yellow();
+	//imguiThemes::gray();
+	imguiThemes::green();
+	//imguiThemes::red();
+	//imguiThemes::gray();
+	//imguiThemes::embraceTheDarkness();
+
+	ImGuiIO &io = ImGui::GetIO(); (void)io;
+	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
+	ImGuiStyle &style = ImGui::GetStyle();
+	style.Colors[ImGuiCol_WindowBg].w = 0.5f;
+	//style.Colors[ImGuiCol_DockingEmptyBg].w = 0.f;
+#pragma endregion
+
+
+
 	sf::CircleShape shape(100.f);
 	//window.setVerticalSyncEnabled(true);
 	shape.setFillColor(sf::Color::Green);
@@ -11,12 +43,17 @@ int main()
 	sf::Clock clock;
 
 
-
 	while (window.isOpen())
 	{
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
+			
+		#pragma region imgui
+			ImGui::SFML::ProcessEvent(window, event);
+		#pragma endregion
+
+
 			if (event.type == sf::Event::Closed)
 				window.close();
 			else if (event.type == sf::Event::Resized)
@@ -35,10 +72,29 @@ int main()
 		deltaTimeSeconds = std::min(deltaTimeSeconds, 1.f);
 		deltaTimeSeconds = std::max(deltaTimeSeconds, 0.f);
 
+	#pragma region imgui
+		ImGui::SFML::Update(window, deltaTime);
+
+		ImGui::PushStyleColor(ImGuiCol_WindowBg, {});
+		ImGui::PushStyleColor(ImGuiCol_DockingEmptyBg, {});
+		ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+		ImGui::PopStyleColor(2);
+	#pragma endregion
+
+
+		ImGui::Begin("Hello, world!");
+		ImGui::Button("Look at this pretty button");
+		ImGui::End();
 
 		//game code....
 		window.clear();
 		window.draw(shape);
+
+
+	#pragma region imgui
+		ImGui::SFML::Render(window);
+	#pragma endregion
+
 		window.display();
 	}
 
