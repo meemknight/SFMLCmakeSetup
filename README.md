@@ -4,7 +4,7 @@
 
 ## What is it?
 
-I already setup SFML for you! Take it and enjoy! You don't need to know CMake!
+I already set up SFML for you! Take it and enjoy! You don't need to know CMake!
 
 <p>Opening the Solution:</p> 
 
@@ -18,7 +18,7 @@ Running the setup
 
 Go to CMakeLists.txt, <kbd>CTRL + S</kbd> to make sure the solution was built.
 
-Then, from this dropdown select mygameSFML.exe
+Then, from this dropdown select mygame.exe
 
 <img src="https://raw.githubusercontent.com/meemknight/photos/master/llge3.gif" width="200">
 
