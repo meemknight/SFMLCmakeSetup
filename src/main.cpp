@@ -29,6 +29,7 @@ int main()
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
+	io.FontGlobalScale = 2.f;
 	ImGuiStyle &style = ImGui::GetStyle();
 	style.Colors[ImGuiCol_WindowBg].w = 0.5f;
 	//style.Colors[ImGuiCol_DockingEmptyBg].w = 0.f;
@@ -83,7 +84,8 @@ int main()
 
 
 		ImGui::Begin("Hello, world!");
-		ImGui::Button("Look at this pretty button");
+		ImGui::Button("Look at this pretty button!");
+		ImGui::Text("Hello!");
 		ImGui::End();
 
 		//game code....
@@ -97,6 +99,10 @@ int main()
 
 		window.display();
 	}
+
+#pragma region imgui
+	ImGui::SFML::Shutdown();
+#pragma endregion
 
 	return 0;
 }
