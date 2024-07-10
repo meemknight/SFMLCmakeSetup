@@ -4,7 +4,7 @@
 
 ## What is it?
 
-I already set up SFML for you! Take it and enjoy! You don't need to know CMake!
+I already set up a SFML project for you! Take it and enjoy! You don't need to know CMake!
 
 <p>Opening the Solution:</p> 
 
