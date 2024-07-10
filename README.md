@@ -4,7 +4,10 @@
 
 ## What is it?
 
-I already set up a SFML project for you! Take it and enjoy! You don't need to know CMake!
+I already set up an SFML project for you! Take it and enjoy! You don't need to know CMake!
+
+![image](https://github.com/meemknight/SFMLCmakeSetup/assets/36445656/8d4d20b9-6b59-41cc-b2c4-b3c410f78b63)
+
 
 <p>Opening the Solution:</p> 
 
