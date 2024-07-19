@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-
 #pragma region imgui
 #include "imgui.h"
 #include "imgui-SFML.h"
@@ -9,9 +8,30 @@
 #pragma endregion
 
 
+//if you want to load OpenGL
+//#include <glad/glad.h>
+//#include <errorReporting.h>
+
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(500, 500), "SFML works!");
+
+
+
+
+	//if you want to load OpenGL.
+	// Note: SFML also uses OpenGL so it will interfere with your code.
+	// If you want to draw both with SFML and your OpenGL code, you will have
+	// to fight with it a little.
+	// I found that calling glDisableVertexAttribArray(0); for attributes 0 - 8
+	// solved some issues sometimes
+	//  
+	//if (!gladLoadGLLoader((GLADloadproc)sf::Context::getFunction))
+	//{
+	//	std::cerr << "Failed to initialize GLAD" << std::endl;
+	//	return -1;
+	//}
+	//enableReportGlErrors();
 
 
 #pragma region imgui

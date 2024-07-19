@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 #basically this will change the RESOURCES_PATH to be the local path
 #! ! ! ! ! ! !
 #DELETE THE OUT FOLDER AFTER CHANGING THIS BECAUSE VISUAL STUDIO DOESN'T SEEM TO RECOGNIZE THIS CHANGE AND REBUILD!
-option(PRODUCTION_BUILD "Make this a production build" OFF)
+option(PRODUCTION_BUILD "Make this a production build!" OFF)
 #DELETE THE OUT FOLDER AFTER CHANGING THIS BECAUSE VISUAL STUDIO DOESN'T SEEM TO RECOGNIZE THIS CHANGE AND REBUILD!
 
 
@@ -37,6 +37,7 @@ project(mygame)
 add_subdirectory(thirdparty/SFML-2.6.1)
 add_subdirectory(thirdparty/imgui-docking)
 add_subdirectory(thirdparty/imgui-sfml-2.6.x)
+add_subdirectory(thirdparty/glad)
 
 
 # MY_SOURCES is defined to be a list of all the source files for my game 
@@ -91,4 +92,5 @@ target_link_libraries("${CMAKE_PROJECT_NAME}"
 	sfml-network
 	imgui
 	ImGui-SFML::ImGui-SFML
+	glad
 )
